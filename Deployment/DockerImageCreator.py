@@ -17,18 +17,18 @@ class DockerImageCreator(abc.ABC):
 		self.pushStateRepo()
 
 	def getStateFromRepo(self):
-		cmds = ['git clone https://sande2jm@github.com/sande2jm/workflow_configuration.git']
+		cmds = ['git submodule add --force https://sande2jm@github.com/sande2jm/workflow_configuration.git']
 		self.runCommands(cmds)
 		self.tag = self.getVersion()
 
 	def cleanupStateRepo(self):
-		cmds = ['rm -rf workflow_configuration']
+		cmds = ['git rm -rf workflow_configuration']
 		self.runCommands(cmds)
 
 	def pushStateRepo(self):
-		cmds = ['git add * ', 
-				'git commit -m test',
-				'git push ']
+		cmds = ['git submodule foreach git add * ', 
+				'git submodule foreach git commit -m test',
+				'git submodule foreach git push origin master']
 
 		self.runCommands(cmds)
 

@@ -22,8 +22,9 @@ class CreateUserServiceUnitTest(unittest.TestCase):
 		self.config.getStateFromRepo()
 		self.config.updateVersion()
 		self.config.cleanupStateRepo()
+		prevTag = float(self.config.tag)
 		self.config.getStateFromRepo()
-		self.assertEqual(self.config.tag, '0.2')
+		self.assertEqual(self.config.tag, str(prevTag + 0.1))
 
 	def tearDown(self):
 		self.config.cleanupStateRepo()

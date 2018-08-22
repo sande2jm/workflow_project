@@ -1,6 +1,3 @@
 [submodule "Testing/Unit/CreateUserService/--force"]
 	path = Testing/Unit/CreateUserService/--force
 	url = https://sande2jm@github.com/sande2jm/workflow_configuration.git
-[submodule "Testing/Unit/CreateUserService/workflow_configuration"]
-	path = Testing/Unit/CreateUserService/workflow_configuration
-	url = https://sande2jm@github.com/sande2jm/workflow_configuration.git

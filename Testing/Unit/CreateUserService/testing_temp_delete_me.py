@@ -1,8 +1,7 @@
 from subprocess import call
 
-cmds = ['cd workflow_configuration',
-		'git add * ', 
-		'git commit -m test',
-		'git push ']
+cmds = ['git submodule foreach git add * ', 
+		'git submodule foreach git commit -m test',
+		'git submodule foreach git push origin master']
 for cmd in cmds:
 	call(cmd.split(' '))
